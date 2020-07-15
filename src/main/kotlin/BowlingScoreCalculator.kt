@@ -1,5 +1,6 @@
 private const val SPARE = '/'
 private const val MISS = '-'
+private const val STRIKE = 'X'
 
 fun scoreFor(rolls: String): Int {
     return rolls.foldIndexed(0) { idx, score, roll ->
@@ -8,7 +9,11 @@ fun scoreFor(rolls: String): Int {
 }
 
 fun bonus(rolls: String, roll: Char, idx: Int): Int {
-    return if (roll == SPARE) score(rolls.next(idx)) else 0
+    return when (roll) {
+        SPARE -> score(rolls.next(idx))
+        STRIKE -> score(rolls.next(idx)) + score(rolls.next(idx + 1))
+        else -> 0
+    }
 }
 
 private fun String.next(idx: Int): Char {
@@ -26,6 +31,6 @@ private fun String.previous(idx: Int): Char {
 private fun score(roll: Char) =
     when (roll) {
         in '1'..'9' -> String(charArrayOf(roll)).toInt()
-        SPARE -> 10
+        SPARE, STRIKE -> 10
         else -> 0
     }

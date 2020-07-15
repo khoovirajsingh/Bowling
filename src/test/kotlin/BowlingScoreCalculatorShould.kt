@@ -11,14 +11,20 @@ class BowlingScoreCalculatorShould {
     }
 
     @Test
-    internal fun `calculate score for gutter shots`() {
+    fun `calculate score for gutter shots`() {
         scoreFor("-") `should be equal to` 0
         scoreFor("1-") `should be equal to` 1
     }
 
     @Test
-    internal fun `calculate score for spares`() {
+    fun `calculate score for spares`() {
         scoreFor("3/-") `should be equal to` 10
         scoreFor("7/7/7/7/7/7/7/7/7/-") `should be equal to` 146
+    }
+
+    @Test
+    fun `calculate score for strikes`() {
+        scoreFor("X") `should be equal to` 10
+        scoreFor("X52") `should be equal to` 24
     }
 }
