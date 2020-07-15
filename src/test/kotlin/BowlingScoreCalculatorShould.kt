@@ -9,4 +9,10 @@ class BowlingScoreCalculatorShould {
         scoreFor("1") `should be equal to` 1
         scoreFor("23") `should be equal to` 5
     }
+
+    @Test
+    internal fun `calculate score for gutter shots`() {
+        scoreFor("-") `should be equal to` 0
+        scoreFor("1-") `should be equal to` 1
+    }
 }

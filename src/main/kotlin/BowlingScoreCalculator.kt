@@ -4,4 +4,8 @@ fun scoreFor(rolls: String): Int {
     }
 }
 
-private fun score(roll: Char) = String(charArrayOf(roll)).toInt()
+private fun score(roll: Char) =
+    when (roll) {
+        in '1'..'9' -> String(charArrayOf(roll)).toInt()
+        else -> 0
+    }
