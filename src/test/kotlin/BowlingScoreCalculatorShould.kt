@@ -27,4 +27,9 @@ class BowlingScoreCalculatorShould {
         scoreFor("X") `should be equal to` 10
         scoreFor("X52") `should be equal to` 24
     }
+
+    @Test
+    fun `calculate score for spares and strikes`() {
+        scoreFor("1/X1/2") `should be equal to` 54
+    }
 }
