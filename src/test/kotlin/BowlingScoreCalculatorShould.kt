@@ -6,5 +6,6 @@ class BowlingScoreCalculatorShould {
     @Test
     fun `score gutter game`() {
         scoreFor("0") `should be equal to` 0
+        scoreFor("1") `should be equal to` 1
     }
 }

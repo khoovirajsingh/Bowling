@@ -1,3 +1,3 @@
 fun scoreFor(rolls: String): Int {
-    return 0
+    return rolls.toInt()
 }
