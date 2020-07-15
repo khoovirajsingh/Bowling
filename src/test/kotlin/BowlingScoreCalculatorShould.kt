@@ -4,8 +4,9 @@ import org.amshove.kluent.`should be equal to`
 
 class BowlingScoreCalculatorShould {
     @Test
-    fun `score gutter game`() {
+    fun `calculate score for pins`() {
         scoreFor("0") `should be equal to` 0
         scoreFor("1") `should be equal to` 1
+        scoreFor("23") `should be equal to` 5
     }
 }
